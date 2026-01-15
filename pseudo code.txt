@@ -1,0 +1,43 @@
+Step 1: Initialize Graph
+1. Define edges → List all connections between nodes along with weights (distances).
+2. Create graph `G` using MATLAB’s `graph` function.
+
+Step 2: Get User Input                                       alogo flowchart and explain each block, blind person with a stick and map and question mark, c
+1. Prompt user for:                                          can dynamic solve this problem, show the video
+   - Start node
+   - Destination node
+2. Find shortest path between start and destination using `shortestpath(G, startNode, endNode)`.
+
+Step 3: Visualize Initial Graph
+1. Plot the graph using the `force` layout.
+2. Label edges with their weights.
+3. Highlight initial shortest path in blue.
+
+Step 4: Simulate Robot Navigation
+1. Set a maximum number of blockages (`maxBlocks = 5`).
+2. Initialize `blockCount = 0` to track blocked edges.
+3. Start traversing the shortest path** from `startNode` to `endNode`.
+
+Step 5: Simulate Movement and Blockages
+1. For each edge in the path:
+   - Highlight it in green (robot movement).
+   - Pause for 1 second to simulate motion.
+
+2. Randomly determine if a blockage appears (30% chance):
+   - If a blockage occurs and an alternative path exists:
+     - Remove the edge from the graph (`rmedge(G, currentNode, nextNode)`).
+     - Update the graph with the new structure.
+     - Increase the `blockCount`.
+     - Highlight the blocked edge in red dashed lines.
+     - Find a new shortest path using `shortestpath(G, startNode, endNode)`.
+     - Restart traversal from the blocked node.
+   - Otherwise, continue moving.
+
+Step 6: Final Visualization
+1. Display legend explaining:
+   - Blue: Initial path.
+   - Green: Updated path.
+   - Red dashed: Blocked edges.
+
+2. End simulation.
+
